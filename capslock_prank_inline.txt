@@ -1,0 +1,25 @@
+REM TITLE Capslock_prank_inline
+REM AUTHOR Dragoseven with props to atomiczsec & I-Am-Jakoby
+REM DESCRIPTION A simple prank script that, upon execution, turns the caps lock key on and off at a set interval (in-line payload)
+REM Version 1.0
+
+ATTACKMODE HID
+
+REM Choose how long you want the caps lock key to blink in seconds
+DEFINE #SLEEP 1
+
+DELAY 2000
+
+GUI r 
+DELAY 500
+
+STRING powershell -w h -NoP -NonI -ep Bypass "while (1){$w = New-
+STRING Object -ComObject WScript.Shell;$w.SendKeys('{CAPSLOCK}');sleep 
+
+SPACE
+STRING #SLEEP
+STRING ;$w.SendKeys('{CAPSLOCK}');sleep
+SPACE
+STRING #SLEEP
+STRING }"
+ENTER
